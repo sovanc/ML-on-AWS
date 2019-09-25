@@ -1,0 +1,21 @@
+One Way
+$ [sudo]pip install virtualenv
+$ virtualenv --python=/usr/bin/python3 venv(or whatever name you want)
+$ source venv/bin/activate
+$ deactivate (to close your virtualenv)
+
+Another Way(this is my normal flow) - Virtualwrapper sits on top of Virtualenv
+$ [sudo]pip install virtualenvwrapper
+Add Commands to Bash
+$ export WORKON_HOME=$HOME/.virtualenvs
+$ export PROJECT_HOME=$HOME/Devel
+$ source /usr/local/bin/virtualenvwrapper.sh
+Make VirtualEnv
+$ mkvirtualenv --python=/usr/bin/python3 project_dev(or whatever you want to call it)
+Setup Environmental Variables File(this is just a sample Django setup)
+$ nano $VIRTUAL_ENV/bin/postactivate
+add your variables then save/overwrite(just a sample of my typical environment file)
+export DJANGO_SETTINGS_MODULE='app.settings.development' export SECRET_KEY='5r^ky@c1#jr2+!p_x=9rwisj*nxmktorpzssam-e!=#ut^dswu' export DATABASE_NAME='database_name' export DATABASE_USER='database_user' export DATABASE_PASSWORD='' export DATABASE_HOST='' export DATABASE_PORT=''
+$ deactivate (once you set the variables, you need to deactivate to set them
+$ workon project_dev (to activate your environment and load all your dependencies)
+
